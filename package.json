@@ -1,0 +1,25 @@
+{
+  "name": "cielpicoduchamphtml",
+  "version": "1.0.0",
+  "description": "HTML generation for the Stat page and Signature of Ciel\"Pico\"Duchamp on NRPG",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zee1234/CielPicoDuchampHTML.git"
+  },
+  "author": "Zee1234",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zee1234/CielPicoDuchampHTML/issues"
+  },
+  "homepage": "https://github.com/Zee1234/CielPicoDuchampHTML#readme",
+  "dependencies": {
+    "nib": "^1.1.2",
+    "pretty-data": "^0.40.0",
+    "pug": "^2.0.0-rc.2",
+    "stylus": "^0.54.5"
+  }
+}
