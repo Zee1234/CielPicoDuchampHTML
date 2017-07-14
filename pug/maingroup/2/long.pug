@@ -1,0 +1,41 @@
+- let info = information.general
+- let stats = info.stats
+div
+  span(style='font-size:15;')
+    strong Stats
+  div(id=g('hashtagstats'))
+    strong Health: 
+    = stats.health
+    br
+    strong Chakra: 
+    = stats.chakra
+    br
+    strong Stamina: 
+    = stats.stamina
+    br
+    strong Speed: 
+    = stats.speed
+    br
+    strong Strength: 
+    = stats.strength
+    br
+  br
+  strong Bonus AP: 
+  = info.bonusap
+  br
+  br
+  span(style='font-size:15;')
+    strong Specialities
+  each spec in info.specialities
+    if spec 
+      br
+      = spec      
+  br
+  br
+  br
+  span(style='font-size:15;')
+    strong Elements
+  each element in info.elements
+    if element 
+      br  
+      = element

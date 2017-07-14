@@ -1,0 +1,99 @@
+name: Ciel "Pico" Duchamp
+rank: D
+ryu: 500
+bijuu: #Don't put anything on this line
+  beast: false
+  v1: false
+  v2: false
+  full: false
+clan: #Don't put anything on this line
+  name: Hiyu
+  link: /t32612-
+kkg: #Don't put anything on this line
+  name: Tai no Hengen
+  link: /t29845-
+stats: #Don't put anything on this line
+  health: 12
+  chakra: 12
+  stamina: 12
+  speed: 12
+  strength: 12
+bonusap: 0
+specialities: #Don't put anything on this line
+  - Ninjutsu
+  - false
+  - false
+elements: #Don't put anything on this line
+  - Earth
+  - false
+  - false
+jutsu:
+  erank:
+    -
+      name: Substitution
+      link: /t22307-
+      info: Whoops! Try again!
+    -
+      name: Clone
+      link: /t22310-
+      info: Are you seeing double, or is that just me?
+    -
+      name: Transformation
+      link: /t22306-
+      info: Now you see me, now you see JOHN CENA
+    -
+      name: Tree Climbing/Surface Walking
+      link: /t22311-
+      info: I can walk on water, I can('t) fly!
+  drank:
+    -
+      name:
+      link:
+      info:
+  crank:
+    -
+      name:
+      link:
+      info:
+  brank:
+    -
+      name:
+      link:
+      info:
+
+  arank:
+    -
+      name:
+      link:
+      info:
+  srank:
+    -
+      name:
+      link:
+      info:
+skills:
+  -
+    name:
+    link:
+    info:
+items:
+  -
+    name: Kunai
+    link: /t22580-
+    info: 5 owned, on person
+  -
+    name: Shuriken
+    link: /t22582-
+    info: 5 owned, on person
+  -
+    name: Smoke Bombs
+    link: /t22584-
+    info: 2 owned, on person
+  -
+    name: Explosive Tag
+    link: /t22583-
+    info: 2 owned, on person
+  -
+    name: Weapon Pouch
+    link: /t22595-
+    info: 2 owned, on person

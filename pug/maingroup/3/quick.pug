@@ -1,0 +1,6 @@
+- let skills = information.general.skills
+if skills[0].name
+  div
+    each skill,i in skills 
+      a(href=skill.link title=skill.info||'')= skill.name
+      br

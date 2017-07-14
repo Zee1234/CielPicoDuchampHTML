@@ -1,0 +1,12 @@
+- let jutsu = information.general.jutsu
+- let order = ['srank','arank','brank','crank','drank','erank']
+div
+  each name in order 
+    span(class=g('jutsurank'))=name[0].toUpperCase() + ' Rank:'
+    div(class=g('jutsulist'))
+      each tech,i in jutsu[name]
+        if i === 0 && !tech.name
+          = '--'
+        else
+          br
+          a(href=tech.link title=tech.info||'')= tech.name

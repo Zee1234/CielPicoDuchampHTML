@@ -1,0 +1,26 @@
+- let info = information.general
+div
+  strong Rank: 
+  = info.rank
+  br
+  if info.bijuu.beast
+    strong Bijuu:
+    br
+    = 'Beast: '+info.bijuu.beast || 'none'
+    br
+    = 'V1: '+info.bijuu.v1 || 'none'
+    br
+    = 'V2: '+info.bijuu.v2 || 'none'
+    br
+    = 'Full: '+info.bijuu.full || 'none'
+    br
+  br
+  strong Clan: 
+  a(href=info.clan.link)= info.clan.name
+  br
+  strong KKG: 
+  a(href=info.kkg.link)= info.kkg.name
+  br
+  strong Ryu: 
+  = info.ryu
+  

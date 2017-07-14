@@ -1,0 +1,124 @@
+@import 'nib'
+
+titleheight = 75px
+
+//Control boxes must be hidden at all times
+.{controller}, .{selector}
+  display none
+
+//Define over all width
+#{container}
+  min-width 500px
+  width 100%
+  relative top left
+
+//Contains title boxes and information
+#{maingroup}
+  width inherit
+
+  > div
+    relative top left
+
+//Make things (labels) behave like divs
+.{divy}
+  display block
+
+//Title box and children
+.{title}
+  width 100%
+  border-radius 15px
+  height titleheight
+  background linear-gradient(bottom left, #e1ffff 0%, #e1ffff 7%, #e1ffff 12%, #fdffff 12%, #e6f8fd 30%, #c8eefb 54%, #bee4f8 75%, #b1d8f5 100%)
+
+  //Change background on hover
+  &:hover
+    background linear-gradient(bottom left, #3b679e 0%, #2b88d9 22%, #2ecbea 47%, #207cca 63%, #7db9e8 100%)
+
+  //Change background on active
+  &:active
+    background linear-gradient(bottom left, #3f4c6b 0%,#79cecb 30%,#5b609b 100%)
+
+  //Style child that contains content
+  > div
+    margin 20px
+    text-align center
+    font-size 30
+    line-height titleheight
+
+//Quick info box styling
+.{quick}
+  width 15%
+  absolute top titleheight right 5%
+  max-height 0px
+  overflow hidden
+  box-sizing border-box
+  z-index 10
+  transition max-height 1s
+  background linear-gradient(top, #ff1a00 0%, #ad2b00 5%, #fc6c6a 11%, #ff1a00 53%, #ff1a00 100%)
+
+  border-radius bottom 10px
+
+  &:hover
+    max-height titleheight*1.5
+    border-width 4px
+
+  .{title}:hover+&
+    max-height titleheight*1.5
+
+  > div
+    margin 15px
+    text-align left
+    font-size 12
+    color yellow
+
+//Long info box styling
+.{long}
+  width 80%
+  relative top left 10%
+  max-height 0px
+  overflow hidden
+  z-index 9
+  transition max-height 2s, border-width 1s
+  text-align left
+  font-size 12
+  background linear-gradient(bottom left, #b8c6df 0%, #6d88b7 100%)
+
+  border-radius bottom 15px
+  border-style solid
+  border-top-style hidden
+  border-color black
+  border-width 0px
+  border-top-width 0px
+
+  .{controller}:checked+&
+    max-height 500px
+    border-width 4px
+
+  > div
+    margin 20px
+    text-align left
+    font-size 12
+    color green
+
+
+#{hashtagstats}
+  margin-top 10px
+  margin-left 20px
+  margin-bottom 15px
+
+  &:target
+    fixed top left
+    width 100%
+    height 100%
+    line-height 100%
+    text-align center
+    background-color black
+    z-index 20
+    margin 0
+    padding 0
+    color #ffcc00
+
+.{jutsulist}
+  margin-top 10px
+  margin-left 20px
+  margin-bottom 15px

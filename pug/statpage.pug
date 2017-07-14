@@ -1,0 +1,20 @@
+style(type='text/css')!= css
+div(id=g('container'))
+  div(id=g('maingroup'))
+    each obj,i in maingroup
+      div
+        label(class=`${g('divy')} ${g('title')}`  for=g('label'+i))!= obj.title
+        if obj.quick
+          div(class=g('quick'))!= obj.quick
+        if obj.long
+          input(class=g('controller')  id=g('label'+i)  type='checkbox')
+          div(class=g('long'))!= obj.long
+//-  each obj,i in filefolder
+    div(class=g('filefolder'))
+      div(class=g('tabgroup'))
+        each info,i in obj
+          label(  class=`${g('divy')} ${g('tab')}`    for=g('label'+i)  )!= obj.name
+      div(class=g('filegroup'))
+        each info,i in obj
+          input(  class=g('controller')    id=g('label'+i)  )
+          div(class=g('file'))!= obj.file

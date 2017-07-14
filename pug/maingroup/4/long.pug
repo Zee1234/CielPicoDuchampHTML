@@ -1,0 +1,8 @@
+- let items = information.general.items
+div
+  each item,i in items
+    if i === 0 && !item.name
+      = '--'
+    else
+      a(href=item.link title=item.info||'')= item.name
+      br
