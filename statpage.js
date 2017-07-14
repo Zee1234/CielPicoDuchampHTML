@@ -17,7 +17,7 @@ function loadfile(path) {
 
 //getUID generates unique IDs by a given string. getUIDList gets the list of unique UIDs keyed by their string
 let getUID, getUIDList
-//*
+/*
 let uidthing = {}
 getUID = function(str) {
   uidthing[str] = str
@@ -28,7 +28,7 @@ getUIDList = function() {
 }
 //*/
 // scoping
-/*
+//*
 if (true) {
   let uid = 0
   let uids = {
