@@ -108,7 +108,5 @@ precss.render((err,out) => {
 //*/
 puglocals.css = pd.cssmin(precss.render())
 
-
 let statpage = page(puglocals)
-fs.writeFileSync('./out/statpage.html',out)
-module.exports = out
+fs.writeFileSync('./out/statpage.html',statpage)
