@@ -9,4 +9,5 @@ div
           = '--'
         else
           br
-          a(href=tech.link title=tech.info||'')= tech.name
+          //-a(href=tech.link title=tech.info||'')= tech.name
+          =`[url=http://naruto-role-play-rpg.forumotion.com${tech.link}]${tech.name}[/url]`

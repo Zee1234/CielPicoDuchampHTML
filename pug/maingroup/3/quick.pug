@@ -2,5 +2,6 @@
 if skills[0].name
   div
     each skill,i in skills 
-      a(href=skill.link title=skill.info||'')= skill.name
+      //-a(href=skill.link title=skill.info||'')= skill.name
+      =`[url=http://naruto-role-play-rpg.forumotion.com${skill.link}]${skill.name}[/url]`
       br

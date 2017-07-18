@@ -9,7 +9,7 @@ div(id=g('container'))
         if obj.long
           input(class=g('controller')  id=g('label'+i)  type='checkbox')
           div(class=g('long'))!= obj.long
-//-  each obj,i in filefolder
+  each obj,i in filefolder
     div(class=g('filefolder'))
       div(class=g('tabgroup'))
         each info,i in obj

@@ -16,10 +16,12 @@ div
     br
   br
   strong Clan: 
-  a(href=info.clan.link)= info.clan.name
+  //-a(href=info.clan.link)= info.clan.name
+  =`[url=http://naruto-role-play-rpg.forumotion.com${info.clan.link}]${info.clan.name}[/url]`
   br
   strong KKG: 
-  a(href=info.kkg.link)= info.kkg.name
+  //-a(href=info.kkg.link)= info.kkg.name
+  =`[url=http://naruto-role-play-rpg.forumotion.com${info.kkg.link}]${info.kkg.name}[/url]`
   br
   strong Ryu: 
   = info.ryu

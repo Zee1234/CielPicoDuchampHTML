@@ -7,12 +7,14 @@ const YAML = require('yamljs')
 
 const IDPrefix = 'CPD'
 
+const args = process.argv.slice(2)
+
 function compilePug(str,local) {
   return pug.compile(str)(local)
 }
 
 function loadfile(path) {
-  return fs.readFileSync(__dirname+'/'+path,'utf8')
+  return fs.readFileSync(path,'utf8')
 }
 
 //getUID generates unique IDs by a given string. getUIDList gets the list of unique UIDs keyed by their string
@@ -52,8 +54,8 @@ if (true) {
 //*/
 
 //Load in character information
-let information = YAML.parse(loadfile('yaml/out.yaml')) //This line, while runnable, is not being used yet
-information.general = YAML.parse(loadfile('yaml/info.yaml'))
+let information = YAML.parse(loadfile(args[1]||'./yaml/out.yaml')) //This line, while runnable, is not being used yet
+information.general = YAML.parse(loadfile(args[0]||'./yaml/info.yaml'))
 
 let puglocals = {
   css: '',
