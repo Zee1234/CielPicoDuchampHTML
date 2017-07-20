@@ -58,3 +58,6 @@ typings/
 .env
 
 out.*.html
+nexe.exe
+src
+src/*
