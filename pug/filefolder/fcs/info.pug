@@ -1,0 +1,5 @@
+- let str = function(att,val) { return val ? att+':'+val+';' : '' }
+- let style = str('height',img.height)+str('width',img.width)
+div(class=g('faceclaimimagecontainer'))
+  img(class=g('faceclaimimage') src=img.url style=style)
+  p= 'Description: ' + (description.length>2 ? description : '-')

@@ -1,4 +1,11 @@
 @import 'nib'
+outline(color = #fff, outline = #000)
+  color color
+  text-shadow 1px 0 0 outline, 0 -1px 0 outline, 0 1px 0 outline, -1px 0 0 outline
+
+
+
+
 
 titleheight = 75px
 
@@ -11,6 +18,15 @@ titleheight = 75px
   min-width 500px
   width 100%
   relative top left
+  a
+    &:link
+      color #1a980c
+    &:visited
+      color #3a6669
+    &:hover
+      color #0c1698
+    &:active
+      color #980c58
 
 //Contains title boxes and information
 #{maingroup}
@@ -29,6 +45,7 @@ titleheight = 75px
   border-radius 15px
   height titleheight
   background linear-gradient(bottom left, #e1ffff 0%, #e1ffff 7%, #e1ffff 12%, #fdffff 12%, #e6f8fd 30%, #c8eefb 54%, #bee4f8 75%, #b1d8f5 100%)
+  outline(#000,#fff)
 
   //Change background on hover
   &:hover
@@ -59,17 +76,20 @@ titleheight = 75px
   border-radius bottom 10px
 
   &:hover
-    max-height titleheight*1.5
+    max-height titleheight*3
     border-width 4px
 
   .{title}:hover+&
-    max-height titleheight*1.5
+    max-height titleheight*3
 
   > div
     margin 15px
     text-align left
     font-size 12
-    color yellow
+    outline(yellow)
+
+    a
+      text-shadow none
 
 //Long info box styling
 .{long}
@@ -98,7 +118,10 @@ titleheight = 75px
     margin 20px
     text-align left
     font-size 12
-    color green
+    //outline(#000,#fff)
+
+
+
 
 
 #{hashtagstats}
@@ -122,3 +145,101 @@ titleheight = 75px
   margin-top 10px
   margin-left 20px
   margin-bottom 15px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// File folder styles
+
+
+tabset = {
+  height: 20px,
+  borderthickness: 5px
+}
+tabgroupset = {
+  width: 95px,
+}
+filetitleset = {
+  height: 50px,
+  margintop: 30px,
+  marginbottom: 10px
+}
+
+
+
+.{filefolder}
+  width 100%
+  margin-bottom 500px
+  relative top left
+
+.{filetitle}
+  width 100%
+  border-radius 20px
+  background-color black
+  color white
+  text-align center
+  overflow-x visible
+  relative top left
+  font-size 20px
+  height: filetitleset.height
+  line-height: filetitleset.height
+  margin-top: filetitleset.margintop
+  margin-bottom: filetitleset.marginbottom
+
+.{tabgroup}
+  absolute: top (filetitleset.height + filetitleset.marginbottom) left (- tabgroupset.width - 5px)
+  width: tabgroupset.width
+
+.{tab}
+  width 100%
+  height: tabset.height
+  border-radius 20px 0px 0px 20px
+  background-color #494949
+  outline()
+  border-top: tabset.borderthickness solid #adc4c7
+  border-left: tabset.borderthickness solid #adc4c7
+  text-align right
+  padding-right 10px
+
+.{filegroup}
+  relative top left
+  width 100%
+
+.{filecontainer}
+  relative top left
+  width 100%
+  height: tabset.height
+  overflow-y visible
+  z-index 2
+  border-bottom: tabset.borderthickness solid #adc4c7
+
+  .{selector}:checked+&
+    z-index: 4
+
+.{file}
+  width 100%
+  height 500px
+  overflow hidden
+  border-radius 0px 15px 10px 10px
+  background linear-gradient(bottom left, #222422 0%, #000200 12%, #444844 100%)
+  border 5px solid #adc4c7
+  outline()
+
+  > div
+    margin 5px
+    width calc(100% - 10px)
+    height calc(100% - 10px)
+    overflow auto
+
+.{faceclaimimage}
+  max-height 490px

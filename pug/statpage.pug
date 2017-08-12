@@ -11,10 +11,12 @@ div(id=g('container'))
           div(class=g('long'))!= obj.long
   each obj,i in filefolder
     div(class=g('filefolder'))
+      div(class=g('filetitle'))!= filetitle[i]
       div(class=g('tabgroup'))
-        each info,i in obj
-          label(  class=`${g('divy')} ${g('tab')}`    for=g('label'+i)  )!= obj.name
+        each info,j in obj
+          label(  class=`${g('divy')} ${g('tab')}`    for=g('fflabel'+i+j)  )!= info.tab+'    '
       div(class=g('filegroup'))
-        each info,i in obj
-          input(  class=g('controller')    id=g('label'+i)  )
-          div(class=g('file'))!= obj.file
+        each info,j in obj
+          input(  class=g('selector')    id=g('fflabel'+i+j)  type='radio'  name=g('radio'+i))
+          label(  class=`${g('divy')} ${g('filecontainer')}`    for=g('fflabel'+i+j)  )
+            div(class=g('file'))!= info.file
