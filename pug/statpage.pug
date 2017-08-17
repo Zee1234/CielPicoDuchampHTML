@@ -17,6 +17,9 @@ div(id=g('container'))
           label(  class=`${g('divy')} ${g('tab')}`    for=g('fflabel'+i+j)  )!= info.tab+'    '
       div(class=g('filegroup'))
         each info,j in obj
-          input(  class=g('selector')    id=g('fflabel'+i+j)  type='radio'  name=g('radio'+i))
+          if k < obj.length-1
+            input(  class=g('selector')    id=g('fflabel'+i+j)  type='radio'  name=g('radio'+i))
+          else
+            input(  class=g('selector')    id=g('fflabel'+i+j)  type='radio'  name=g('radio'+i) checked)
           label(  class=`${g('divy')} ${g('filecontainer')}`    for=g('fflabel'+i+j)  )
             div(class=g('file'))!= info.file
