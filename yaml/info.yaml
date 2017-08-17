@@ -14,7 +14,7 @@ kkg: #Don't put anything on this line
   link: /t29845-
 stats: #Don't put anything on this line
   health: 12
-  chakra: 12
+  chakra: 25
   stamina: 12
   speed: 12
   strength: 12
@@ -47,9 +47,9 @@ jutsu:
       info: I can walk on water, I can('t) fly!
   drank:
     -
-      name:
-      link:
-      info:
+      name: Koudo Henge no Jutsu
+      link: /t24379-
+      info: Now I can forever be JOHN CENA
   crank:
     -
       name:
