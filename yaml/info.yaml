@@ -14,9 +14,9 @@ kkg: #Don't put anything on this line
   link: /t29845-
 stats: #Don't put anything on this line
   health: 12
-  chakra: 25
+  chakra: 30
   stamina: 12
-  speed: 12
+  speed: 17
   strength: 12
 bonusap: 0
 specialities: #Don't put anything on this line
@@ -73,9 +73,9 @@ jutsu:
       info:
 skills:
   -
-    name:
-    link:
-    info:
+    name: Chakra Suppression
+    link: /t22718-
+    info: Now you see me, now you... still see me
 items:
   -
     name: Kunai
