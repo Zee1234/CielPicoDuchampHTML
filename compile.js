@@ -9,13 +9,11 @@ const IDPrefix = 'CPD'
 
 const args = process.argv.slice(2)
 
-
-
 function loadfile(path) {
-  return fs.readFileSync(path,'utf8')
+  return fs.readFileSync(path, 'utf8')
 }
 
-function compilePug(str,local) {
+function compilePug(str, local) {
   return pug.compile(str)(local)
 }
 
@@ -24,19 +22,23 @@ let getPug
 if (true) {
   let loadedPug = {}
   getPug = function(path) {
-    if (loadedPug[path]) { return loadedPug[path] }
+    if (loadedPug[path]) {
+      return loadedPug[path]
+    }
 
     let loaded
     try {
       loaded = loadfile(path)
-    } catch(err) {
+    } catch (err) {
       loaded = false
-      console.log('Error loading file: '+path)
+      console.log('Error loading file: ' + path)
     }
     if (loaded) {
       loadedPug[path] = loaded
       return loaded
-    } else { return '' }
+    } else {
+      return ''
+    }
   }
 }
 
@@ -44,10 +46,11 @@ if (true) {
 let getUID, getUIDList, getNum
 // scoping
 //*
-if (true) { //true to function normally, false to enable classname debugging
+if (true) {
+  //true to function normally, false to enable classname debugging
   let uid = 0
   let uids = {
-    hashtagstats: IDPrefix+'stats'
+    hashtagstats: IDPrefix + 'stats'
   }
   let makeUID = function() {
     return IDPrefix + uid++
@@ -63,7 +66,9 @@ if (true) { //true to function normally, false to enable classname debugging
     }
     return obj
   }
-  getNum = function() { return uid }
+  getNum = function() {
+    return uid
+  }
 } else {
   let uidthing = {}
   getUID = function(str) {
@@ -83,57 +88,54 @@ let puglocals = {
   filefolder: [],
   filetitle: [],
   information: {
-    general: YAML.parse(loadfile(args[0]||'./yaml/info.yaml')),
+    general: YAML.parse(loadfile(args[0] || './yaml/info.yaml')),
     histories: YAML.parse(loadfile('./yaml/histories.yaml')),
-    faceclaims: YAML.parse(loadfile('./yaml/faceclaims.yaml')),
+    faceclaims: YAML.parse(loadfile('./yaml/faceclaims.yaml'))
   },
-  addMainGroupMember: function(t,q,l) {
-    this.maingroup.push({title: t, quick: q, long: l})
+  addMainGroupMember: function(t, q, l) {
+    this.maingroup.push({ title: t, quick: q, long: l })
   },
   merge: function(tab) {
-    return Object.assign(tab,this)
+    return Object.assign(tab, this)
   }
 }
 
 function mainGroup(path) {
   path = path || './pug/maingroup'
-  fs.readdirSync(path).sort().forEach((file,index) => {
-    let stat = fs.statSync(path+'/'+file)
+  fs.readdirSync(path).sort().forEach((file, index) => {
+    let stat = fs.statSync(path + '/' + file)
     if (stat.isDirectory()) {
       function q(name) {
-        return compilePug(loadfile(path+'/'+file+'/'+name+'.pug'),puglocals)
+        return compilePug(
+          loadfile(path + '/' + file + '/' + name + '.pug'),
+          puglocals
+        )
       }
-      puglocals.addMainGroupMember(q('title'),q('quick'),q('long'))
+      puglocals.addMainGroupMember(q('title'), q('quick'), q('long'))
     }
   })
 }
 mainGroup()
-function fileFolder(path,name,titlename) {
-  let tab = getPug(path+'/tab.pug')
-  let info = getPug(path+'/info.pug')
+function fileFolder(path, name, titlename) {
+  let tab = getPug(path + '/tab.pug')
+  let info = getPug(path + '/info.pug')
   let title = getPug('./pug/filefolder/title.pug')
-  puglocals.filetitle.push(compilePug(
-    title,
-    puglocals.merge({title: titlename})
-  ))
-  puglocals.filefolder.push(puglocals.information[name].map((x) => {
-    return {
-      tab: compilePug(tab,puglocals.merge(x)),
-      file: compilePug(info,puglocals.merge(x)),
-    }
-  }))
-
+  puglocals.filetitle.push(
+    compilePug(title, puglocals.merge({ title: titlename }))
+  )
+  puglocals.filefolder.push(
+    puglocals.information[name].map(x => {
+      return {
+        tab: compilePug(tab, puglocals.merge(x)),
+        file: compilePug(info, puglocals.merge(x))
+      }
+    })
+  )
 }
-fileFolder('./pug/filefolder/fcs','faceclaims','Descriptions')
-fileFolder('./pug/filefolder/histories','histories','Backstories')
+fileFolder('./pug/filefolder/fcs', 'faceclaims', 'Descriptions')
+fileFolder('./pug/filefolder/histories', 'histories', 'Backstories')
 
 //Name section. No long info
-
-
-
-
-
-
 
 let page = pug.compile(getPug('pug/statpage.pug'))
 //Generate all UIDs used in the pug page to allow them to be inserted into the stylus page
@@ -141,12 +143,11 @@ let page = pug.compile(getPug('pug/statpage.pug'))
 page(puglocals)
 
 //Prepare Stylus for render
-let precss = stylus(loadfile('stylus/statpage.styl'))
-  .use(nib())
+let precss = stylus(loadfile('stylus/statpage.styl')).use(nib())
 //Insert all the UIDs generated within the PUG sheet into the Stylus namespace
 let uidlist = getUIDList()
 for (key in uidlist) {
-  precss.define(key,uidlist[key])
+  precss.define(key, uidlist[key])
 }
 /*
 precss.render((err,out) => {
@@ -157,6 +158,6 @@ precss.render((err,out) => {
 puglocals.css = pd.cssmin(precss.render())
 
 let statpage = page(puglocals)
-fs.writeFileSync('./out/statpage.html',statpage.replace(/\n/g,'<br>'))
+fs.writeFileSync('./out/statpage.html', statpage.replace(/\n/g, '<br>'))
 
 console.log(getNum())
