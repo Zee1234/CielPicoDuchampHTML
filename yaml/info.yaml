@@ -14,8 +14,8 @@ kkg: #Don't put anything on this line
   link: /t29845-
 stats: #Don't put anything on this line
   health: 12
-  chakra: 30
-  stamina: 12
+  chakra: 40
+  stamina: 17
   speed: 17
   strength: 12
 bonusap: 0
@@ -50,6 +50,10 @@ jutsu:
       name: Koudo Henge no Jutsu
       link: /t24379-
       info: Now I can forever be JOHN CENA
+    -
+      name: Chakra Disguise Technique
+      link: /t36450-
+      info: You still see me BUT WHO AM I!?
   crank:
     -
       name:
@@ -76,6 +80,10 @@ skills:
     name: Chakra Suppression
     link: /t22718-
     info: Now you see me, now you... still see me
+  -
+    name: Counter Cold Reading
+    link: /t36728-
+    info: Can't read what always lies
 items:
   -
     name: Kunai
